@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Fitness Centar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Login </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="reg2.html">Registracija za korisnike<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="regtrener.html">Registracija za trenere</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="treneri.html">Odobravanje</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+
+  <div class="card bg-light" style="width:70%;">
+
+      <h4 class="card-title mt-3 text-center">Postani korisnik</h4>
+      <form method="post">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Ime" type="text" required="required">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Prezime" type="text" required="required">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Username" type="text" required="required">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Email adresa" type="email" required="required">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;">
+            <option selected="">+381</option>
+            <option value="1">+387</option>
+            <option value="2">+388</option>
+            <option value="3">+999</option>
+          </select>
+          <input name="" class="form-control" placeholder="Phone number" type="text" required="required">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Password" type="password" required="required">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input name="" class="form-control" placeholder="Datum rodjenja" type="date" required="required">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Registruj se  </button>
+        </div> <!-- form-group// -->
+        <p class="text-center">Vec imas nalog? <a href="login.html">Log in</a> </p>
+      </form>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>
