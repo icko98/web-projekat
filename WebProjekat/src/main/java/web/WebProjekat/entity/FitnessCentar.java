@@ -62,11 +62,11 @@ public class FitnessCentar implements Serializable {
 		this.email = email;
 	}
 
-	public List<Trener> getListaTrenera() {
+	public List<Korisnik> getListaTrenera() {
 		return listaTrenera;
 	}
 
-	public void setListaTrenera(List<Trener> listaTrenera) {
+	public void setListaTrenera(List<Korisnik> listaTrenera) {
 		this.listaTrenera = listaTrenera;
 	}
 
@@ -87,7 +87,7 @@ public class FitnessCentar implements Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Trener> listaTrenera;
+	private List<Korisnik> listaTrenera;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Sala> listaSala;
@@ -95,7 +95,7 @@ public class FitnessCentar implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Trening> listaTreninga;
 
-	public FitnessCentar(Long id, String naziv, String adresa, String brojTelefona, String email, List<Trener> listaTrenera, List<Sala> listaSala, List<Trening> listaTreninga) {
+	public FitnessCentar(Long id, String naziv, String adresa, String brojTelefona, String email, List<Korisnik> listaTrenera, List<Sala> listaSala, List<Trening> listaTreninga) {
 		this.id = id;
 		this.naziv = naziv;
 		this.adresa = adresa;

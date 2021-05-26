@@ -13,13 +13,16 @@ public class Korisnik implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
+
 	@Column(unique=true)
 	private String KorisnickoIme;
 	
 	@Column
 	private String Lozinka;
-	
+
+	@Column
+	private int ProsecnaOcena;
+
 	@Column
 	private String Ime;
 	
@@ -110,6 +113,14 @@ public class Korisnik implements Serializable {
 		return Uloga;
 	}
 
+	public int getProsecnaOcena() {
+		return ProsecnaOcena;
+	}
+
+	public void setProsecnaOcena(int prosecnaOcena) {
+		ProsecnaOcena = prosecnaOcena;
+	}
+
 	public void setUloga(web.WebProjekat.entity.Uloga uloga) {
 		Uloga = uloga;
 	}
@@ -124,10 +135,11 @@ public class Korisnik implements Serializable {
 
 	public Korisnik(){}
 
-	public Korisnik(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String telefon, String email, Date datumRodjenja, web.WebProjekat.entity.Uloga uloga, Boolean aktivan) {
+	public Korisnik(Long id, String korisnickoIme, String lozinka, int prosecnaOcena, String ime, String prezime, String telefon, String email, Date datumRodjenja, web.WebProjekat.entity.Uloga uloga, Boolean aktivan) {
 		this.id = id;
 		KorisnickoIme = korisnickoIme;
 		Lozinka = lozinka;
+		ProsecnaOcena = prosecnaOcena;
 		Ime = ime;
 		Prezime = prezime;
 		Telefon = telefon;

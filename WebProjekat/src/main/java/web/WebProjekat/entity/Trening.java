@@ -34,9 +34,9 @@ public class Trening implements Serializable {
 	private List<Termin> termini;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Trener trener;
+	private Korisnik trener;
 
-	public Trening(Long id, String naziv, String opis, web.WebProjekat.entity.Tip tip, int trajanje, List<Termin> termini, Trener trener) {
+	public Trening(Long id, String naziv, String opis, web.WebProjekat.entity.Tip tip, int trajanje, List<Termin> termini, Korisnik trener) {
 		this.id = id;
 		Naziv = naziv;
 		Opis = opis;
@@ -94,11 +94,11 @@ public class Trening implements Serializable {
 		this.termini = termini;
 	}
 
-	public Trener getTrener() {
+	public Korisnik getTrener() {
 		return trener;
 	}
 
-	public void setTrener(Trener trener) {
+	public void setTrener(Korisnik trener) {
 		this.trener = trener;
 	}
 }
