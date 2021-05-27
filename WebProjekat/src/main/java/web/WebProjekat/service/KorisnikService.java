@@ -13,6 +13,13 @@ public class KorisnikService {
     @Autowired
     private KorisnikRepository korisnikRepository;
 
+
+    // izuzetno cudno. morao sam da menjam getId sa ovim findbyid.get nzm zasto
+    public Korisnik findOne(Long id)
+    {
+        return this.korisnikRepository.findById(id).get();
+    }
+
     public List<Korisnik> findAll() {
         List<Korisnik> korisnici= this.korisnikRepository.findAll();
         return korisnici;
@@ -23,6 +30,12 @@ public class KorisnikService {
         }
         return this.korisnikRepository.save(korisnik);
     }
+
+    public void delete(Long id)
+    {
+        this.korisnikRepository.deleteById(id);
+    }
+
 
     //TODO
 }

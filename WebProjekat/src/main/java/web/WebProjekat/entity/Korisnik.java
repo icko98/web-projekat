@@ -148,5 +148,18 @@ public class Korisnik implements Serializable {
 		Uloga = uloga;
 		Aktivan = aktivan;
 	}
+
+	public Korisnik(String korisnickoIme, String lozinka, int prosecnaOcena, String ime, String prezime, String telefon, String email, Date datumRodjenja, web.WebProjekat.entity.Uloga uloga, Boolean aktivan) {
+		KorisnickoIme = korisnickoIme;
+		Lozinka = lozinka;
+		ProsecnaOcena = prosecnaOcena;
+		Ime = ime;
+		Prezime = prezime;
+		Telefon = telefon;
+		this.email = email;
+		DatumRodjenja = datumRodjenja;
+		Uloga = uloga;
+		Aktivan = aktivan;
+	}
 }
 

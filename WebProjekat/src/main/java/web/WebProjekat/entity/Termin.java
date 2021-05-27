@@ -14,7 +14,6 @@ public class Termin implements Serializable {
     @Id
     private Long id;
 
-
     @Column
     private Date pocetak;
 

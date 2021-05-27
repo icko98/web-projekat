@@ -95,6 +95,15 @@ public class FitnessCentar implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Trening> listaTreninga;
 
+	public FitnessCentar(){}
+
+	public FitnessCentar(String naziv, String adresa, String brojTelefona, String email){
+		this.naziv=naziv;
+		this.adresa=adresa;
+		this.brojTelefona=brojTelefona;
+		this.email=email;
+	}
+
 	public FitnessCentar(Long id, String naziv, String adresa, String brojTelefona, String email, List<Korisnik> listaTrenera, List<Sala> listaSala, List<Trening> listaTreninga) {
 		this.id = id;
 		this.naziv = naziv;
