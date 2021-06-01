@@ -1,5 +1,7 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,11 +17,13 @@ public class Sala implements Serializable {
 	
 	@Column
 	private String oznaka;
-	
+
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	private FitnessCentar fitnessCentar;
 
-	@OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	@OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Termin> termini;
 
 	public Sala(Long id, int kapacitet, String oznaka, FitnessCentar fitnessCentar, List<Termin> termini) {
@@ -29,6 +33,14 @@ public class Sala implements Serializable {
 		this.fitnessCentar = fitnessCentar;
 		this.termini = termini;
 	}
+
+	public Sala(int kapacitet, String oznaka, FitnessCentar fitnessCentar, List<Termin> termini) {
+		this.kapacitet = kapacitet;
+		this.oznaka = oznaka;
+		this.fitnessCentar = fitnessCentar;
+		this.termini = termini;
+	}
+
 	public Sala(){}
 
 	public Long getId() {

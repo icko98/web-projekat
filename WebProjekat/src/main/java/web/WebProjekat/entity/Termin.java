@@ -1,5 +1,6 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.persister.walking.internal.FetchStrategyHelper;
 
 import javax.persistence.*;
@@ -20,12 +21,15 @@ public class Termin implements Serializable {
     @Column
     private double cena;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sala;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Trening trening;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "termin", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ocena> ocene;
 
@@ -70,6 +74,7 @@ public class Termin implements Serializable {
         this.trening = trening;
         this.ocene = ocene;
     }
+    public Termin(){}
 
     public List<Ocena> getOcene() {
         return ocene;

@@ -43,7 +43,7 @@ public class FitnessCentarController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // metoda za azuriranje FCa NIJE PROVERENA!!!!!!
+    // metoda za azuriranje FCa
 
     @PutMapping(value="/FC.html/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FitnessCentar> updateFC(@PathVariable Long id, @RequestBody FitnessCentar fc) throws Exception
@@ -55,5 +55,5 @@ public class FitnessCentarController {
     }
 
 
-    //TODO
+    //TODO nista?
 }

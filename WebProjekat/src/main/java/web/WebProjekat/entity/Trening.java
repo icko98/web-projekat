@@ -1,5 +1,6 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 
 import java.io.Serializable;
@@ -30,9 +31,11 @@ public class Trening implements Serializable {
 	@Column
 	private int Trajanje;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Termin> termini;
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Korisnik trener;
 
@@ -45,6 +48,7 @@ public class Trening implements Serializable {
 		this.termini = termini;
 		this.trener = trener;
 	}
+	public Trening(){}
 
 	public Long getId() {
 		return id;
