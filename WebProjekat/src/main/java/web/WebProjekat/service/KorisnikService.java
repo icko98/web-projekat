@@ -2,6 +2,7 @@ package web.WebProjekat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import web.WebProjekat.entity.FitnessCentar;
 import web.WebProjekat.entity.Korisnik;
 import web.WebProjekat.repository.KorisnikRepository;
 
@@ -34,6 +35,25 @@ public class KorisnikService {
     public void delete(Long id)
     {
         this.korisnikRepository.deleteById(id);
+    }
+
+    public Korisnik update(Korisnik korisnik) throws Exception {
+        Korisnik korisnikUpdate = this.korisnikRepository.getOne(korisnik.getId());
+        if (korisnikUpdate == null) {
+            throw new Exception("Korisnik does not exist");
+        }
+        korisnikUpdate.setAktivan(korisnik.getAktivan());
+        korisnikUpdate.setKorisnickoIme(korisnik.getKorisnickoIme());
+        korisnikUpdate.setEmail(korisnik.getEmail());
+        korisnikUpdate.setDatumRodjenja(korisnik.getDatumRodjenja());
+        korisnikUpdate.setIme(korisnik.getIme());
+        korisnikUpdate.setPrezime(korisnik.getPrezime());
+        korisnikUpdate.setLozinka(korisnik.getLozinka());
+        korisnikUpdate.setProsecnaOcena(korisnik.getProsecnaOcena());
+        korisnikUpdate.setTelefon(korisnik.getTelefon());
+        //LISTE ???
+
+        return this.korisnikRepository.save(korisnikUpdate);
     }
 
 

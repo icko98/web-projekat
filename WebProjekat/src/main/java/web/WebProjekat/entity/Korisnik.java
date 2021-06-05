@@ -1,5 +1,7 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,10 +18,13 @@ public class Korisnik implements Serializable {
 
 	@Column(unique=true)
 	private String KorisnickoIme;
-	
+
+
 	@Column
+	@JsonIgnore
 	private String Lozinka;
 
+	@JsonIgnore
 	@Column
 	private int ProsecnaOcena;
 
@@ -38,9 +43,11 @@ public class Korisnik implements Serializable {
 	@Column
 	private Date DatumRodjenja;
 
+
 	@Column
 	@Enumerated
 	private Uloga Uloga;
+
 
 	@Column
 	private Boolean Aktivan;
@@ -61,6 +68,7 @@ public class Korisnik implements Serializable {
 		KorisnickoIme = korisnickoIme;
 	}
 
+	@JsonIgnore
 	public String getLozinka() {
 		return Lozinka;
 	}
@@ -113,6 +121,7 @@ public class Korisnik implements Serializable {
 		return Uloga;
 	}
 
+	@JsonIgnore
 	public int getProsecnaOcena() {
 		return ProsecnaOcena;
 	}
@@ -124,6 +133,7 @@ public class Korisnik implements Serializable {
 	public void setUloga(web.WebProjekat.entity.Uloga uloga) {
 		Uloga = uloga;
 	}
+
 
 	public Boolean getAktivan() {
 		return Aktivan;

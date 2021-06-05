@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.WebProjekat.entity.FitnessCentar;
 import web.WebProjekat.entity.Korisnik;
 import web.WebProjekat.service.KorisnikService;
 
@@ -21,8 +22,14 @@ public class KorisnikController {
 
     //Vraca jednog korisnika
 
-    @GetMapping(value="/profili.html/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/profili/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> getKorisnik(@PathVariable("id") Long id)
+    {
+        Korisnik korisnik=this.korisnikService.findOne(id);
+        return new ResponseEntity<>(korisnik, HttpStatus.OK);
+    }
+    @GetMapping(value="/treneri/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Korisnik> gettKorisnik(@PathVariable("id") Long id)
     {
         Korisnik korisnik=this.korisnikService.findOne(id);
         return new ResponseEntity<>(korisnik, HttpStatus.OK);
@@ -31,6 +38,12 @@ public class KorisnikController {
     //Vraca sve korisnike
     @GetMapping(value="/profili.html",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Korisnik>> getKorisnike(){
+        List<Korisnik> listaKorisnika = this.korisnikService.findAll();
+        return new ResponseEntity<>(listaKorisnika, HttpStatus.OK);
+    }
+
+    @GetMapping(value="/treneri",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Korisnik>> gettKorisnike(){
         List<Korisnik> listaKorisnika = this.korisnikService.findAll();
         return new ResponseEntity<>(listaKorisnika, HttpStatus.OK);
     }
@@ -54,5 +67,31 @@ public class KorisnikController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //TODO 80% gotovo ig +zahtevi za dodavanje trenera isl S TIM NE ZNAM STA CU
+    @DeleteMapping(value="/treneri/{id}")
+    public ResponseEntity<Void> deleteeKorisnik(@PathVariable Long id)
+    {
+        this.korisnikService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(value="/profili/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Korisnik> updateKorisnik(@PathVariable Long id, @RequestBody Korisnik korisnik) throws Exception
+    {
+        Korisnik noviKorisnik= new Korisnik(korisnik.getKorisnickoIme(), korisnik.getLozinka(), korisnik.getProsecnaOcena(), korisnik.getIme(), korisnik.getPrezime(), korisnik.getTelefon(),
+                korisnik.getEmail(), korisnik.getDatumRodjenja(),korisnik.getUloga(), korisnik.getAktivan());
+        noviKorisnik.setId(id);
+        Korisnik novKorisnik = korisnikService.update(noviKorisnik);
+        return new ResponseEntity<>(novKorisnik, HttpStatus.OK);
+    }
+    @PutMapping(value="/treneri/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Korisnik> updateeKorisnik(@PathVariable Long id, @RequestBody Korisnik korisnik) throws Exception
+    {
+        Korisnik noviKorisnik= new Korisnik(korisnik.getKorisnickoIme(), korisnik.getLozinka(), korisnik.getProsecnaOcena(), korisnik.getIme(), korisnik.getPrezime(), korisnik.getTelefon(),
+                korisnik.getEmail(), korisnik.getDatumRodjenja(),korisnik.getUloga(), korisnik.getAktivan());
+        noviKorisnik.setId(id);
+        Korisnik novKorisnik = korisnikService.update(noviKorisnik);
+        return new ResponseEntity<>(novKorisnik, HttpStatus.OK);
+    }
+
+    //TODO
 }

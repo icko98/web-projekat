@@ -5,7 +5,11 @@
     <title>Title</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></head>
+  <script src="jquery.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
+  <script src="treneri.js"></script>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Fitness Centar</a>
@@ -29,51 +33,41 @@
     </ul>
   </div>
 </nav>
-<table class="table">
-  <thead class="thead-primary">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Ime</th>
-    <th scope="col">Prezime</th>
-    <th scope="col">Username</th>
-    <th scope="col">Email</th>
-    <th scope="col">Broj telefona</th>
-    <th scope="col">Datum Rodjenja</th>
-    <th scope="col">Accept</th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Marko</td>
-    <td>Markovic</td>
-    <td>Markoni123</td>
-    <td>MM112233@gmail.com</td>
-    <td>+38163223533</td>
-    <td>11-11-1999</td>
-    <td><input type = "button" /> </td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Darko</td>
-    <td>Darkovic</td>
-    <td>Darkoni123</td>
-    <td>DD112233@gmail.com</td>
-    <td>+38166222333</td>
-    <td>12-12-1999</td>
-    <td><input type = "button" /> </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Zarko</td>
-    <td>Zarkovic</td>
-    <td>Zarkoni123</td>
-    <td>ZZ112233@gmail.com</td>
-    <td>+38161023533</td>
-    <td>10-10-1999</td>
-    <td><input type = "button" /> </td>
-  </tr>
-  </tbody>
-</table>
+<div id="korisnici222">
+<h1>Korisnici</h1>
+<br><br>
+<div class="container">
+  <table id="korisnici">
+    <tr>
+      <th>#</th>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Broj telefona</th>
+      <th>Datum Rodjenja</th>
+      <th> aktivan </th>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div id="oneKorisnik" hidden>
+  <h2 style="text-align:center">Employee Profile</h2>
+  <div class="card">
+    <h1 id="id"></h1>
+    <h1 id="ime"></h1>
+    <h1 id="prezime"></h1>
+    <p  id="korisnickoIme"></p>
+    <p id="email"></p>
+    <p id="telefon"></p>
+    <p id="datumRodjenja"></p>
+    <p id="aktivan"></p>
+    <br>
+  </div>
+</div>
+
+</body>
+</html>
 
