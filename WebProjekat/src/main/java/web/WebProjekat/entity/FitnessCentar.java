@@ -1,5 +1,7 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -86,12 +88,15 @@ public class FitnessCentar implements Serializable {
 		this.listaTreninga = listaTreninga;
 	}
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Korisnik> listaTrenera;
-	
+
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Sala> listaSala;
-	
+
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Trening> listaTreninga;
 
