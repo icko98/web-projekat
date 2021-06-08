@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>termini</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="sortable.js"></script>
+    <script src="termini.js"></script>
+
+</head>
+<body>
+
+<!-- OVO JE SAMO NAVBAR> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Fitness Centar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reg2.html">Registracija za korisnike</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="regtrener.html">Registracija za trenere<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="treneri.html">Odobravanje</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="termini1">
+    <h1>Dostupni termini</h1>
+    <br><br>
+    <div class="container">
+        <input type="text" id="input3" onkeyup="nadji()" placeholder="by id">
+        <input type="text" id="input1" onkeyup="nadji2()" placeholder="by cena">
+        <input type="text" id="input2" onkeyup="nadji3()" placeholder="by date">
+        <input type="text" id="input4" onkeyup="nadji4()" placeholder="by sala">
+        <input type="text" id="input5" onkeyup="nadji5()" placeholder="by trening">
+        <table id="tabela3" class = "sortable"  >
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Cena</th>
+                <th>Pocetak</th>
+                <th>Sala</th>
+                <th>Trening</th>
+
+            </tr>
+            </thead>
+            <tbody id="termini">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

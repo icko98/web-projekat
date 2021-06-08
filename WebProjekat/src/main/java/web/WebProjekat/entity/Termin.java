@@ -21,11 +21,11 @@ public class Termin implements Serializable {
     @Column
     private double cena;
 
-    @JsonIgnore
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sala;
 
-    @JsonIgnore
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Trening trening;
 
