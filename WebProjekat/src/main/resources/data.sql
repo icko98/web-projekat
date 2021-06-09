@@ -19,6 +19,6 @@ values (false, '2000-06-11 19:00:00.000000', 'yakzzzi2@gmail.com' , 'Yadddisav',
 INSERT INTO KORISNIK(AKTIVAN, DATUM_RODJENJA, EMAIL, IME,PREZIME ,TELEFON, KORISNICKO_IME, LOZINKA, ULOGA,PROSECNA_OCENA)
 values (false, '2000-06-11 19:00:00.000000', 'kaca@gmail.com' , 'Kaca', 'Veljkovic', '068333555', 'kacamaca','02051998k' ,0,1.1);
 INSERT INTO KORISNIK(AKTIVAN, DATUM_RODJENJA, EMAIL, IME,PREZIME ,TELEFON, KORISNICKO_IME, LOZINKA, ULOGA,PROSECNA_OCENA)
-values (false, '2000-06-13 19:00:00.000000', 'icko2298@gmail.com' , 'Ilija', 'Cvektovic', '06835311221127', 'icko2298','ppppppppasswo44rd4' ,0,1.1);
+values (false, '2000-06-13 19:00:00.000000', 'icko2298@gmail.com' , 'Ilija', 'Cvektovic', '06835311221127', 'icko2298','ppppppppasswo44rd4' ,2,1.2);
 INSERT INTO KORISNIK(AKTIVAN, DATUM_RODJENJA, EMAIL, IME,PREZIME ,TELEFON, KORISNICKO_IME, LOZINKA, ULOGA,PROSECNA_OCENA)
-values (false, '2000-06-12 19:00:00.000000', 'yakzzfzi2@gmail.com' , 'Yadddidsav', 'Lasdsic', '0683311335221127', 'WUUUUcassocsdasic','ppppppppasswo44rd4' ,0,1.1);
+values (false, '2000-06-12 19:00:00.000000', 'yakzzfzi2@gmail.com' , 'Yadddidsav', 'Lasdsic', '0683311335221127', 'WUUUUcassocsdasic','ppppppppasswo44rd4' ,1,1.3);

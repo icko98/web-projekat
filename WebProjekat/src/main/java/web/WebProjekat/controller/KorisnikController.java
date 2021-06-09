@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import web.WebProjekat.entity.FitnessCentar;
 import web.WebProjekat.entity.Korisnik;
 import web.WebProjekat.service.KorisnikService;
 
@@ -36,7 +35,7 @@ public class KorisnikController {
     }
 
     //Vraca sve korisnike
-    @GetMapping(value="/profili.html",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/profili",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Korisnik>> getKorisnike(){
         List<Korisnik> listaKorisnika = this.korisnikService.findAll();
         return new ResponseEntity<>(listaKorisnika, HttpStatus.OK);
@@ -50,7 +49,7 @@ public class KorisnikController {
 
 
     //Dodavanje novog korisnika valjda, nisam siguran
-    @PostMapping(value="/profili.html",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/profili",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) // OBRISO SAM HTML SA KRAJA MOZDA JE TO GRESKA
     public ResponseEntity<Korisnik> createKorisnik(@RequestBody Korisnik korisnik) throws Exception {
         Korisnik newKorisnik = new Korisnik(korisnik.getKorisnickoIme(),korisnik.getLozinka(),korisnik.getProsecnaOcena(),
                 korisnik.getIme(),korisnik.getPrezime(),korisnik.getTelefon(),korisnik.getEmail(),
@@ -60,7 +59,7 @@ public class KorisnikController {
     }
 
     //Brisanje postojeceg korisnika
-    @DeleteMapping(value="/profili.html/{id}")
+    @DeleteMapping(value="/profili/{id}")
     public ResponseEntity<Void> deleteKorisnik(@PathVariable Long id)
     {
         this.korisnikService.delete(id);
@@ -92,6 +91,8 @@ public class KorisnikController {
         Korisnik novKorisnik = korisnikService.update(noviKorisnik);
         return new ResponseEntity<>(novKorisnik, HttpStatus.OK);
     }
+
+
 
     //TODO
 }
