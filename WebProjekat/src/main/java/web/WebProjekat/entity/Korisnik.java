@@ -21,7 +21,6 @@ public class Korisnik implements Serializable {
 
 
 	@Column
-	@JsonIgnore
 	private String Lozinka;
 
 	@JsonIgnore

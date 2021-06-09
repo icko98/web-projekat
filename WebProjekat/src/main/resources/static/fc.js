@@ -23,8 +23,8 @@ $(document).ready(function () {
         }
     });
 });
-$(document).on("submit", "#addCentarForm", function (event) {     // kada je submit-ovana forma za kreiranje novog zaposlenog
-    event.preventDefault();                                         // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
+$(document).on("submit", "#addCentarForm", function (event) {
+    event.preventDefault();
 
     // preuzimamo vrednosti unete u formi
     let naziv = $("#nazivcen").val();
@@ -39,18 +39,18 @@ $(document).on("submit", "#addCentarForm", function (event) {     // kada je sub
     adresa,
     }
     $.ajax({
-            type: "POST",                                               // HTTP metoda je POST
-            url: "http://localhost:8080/centri",                 // URL na koji se šalju podaci
-            dataType: "json",                                           // tip povratne vrednosti
-            contentType: "application/json",                            // tip podataka koje šaljemo
-            data: JSON.stringify(newCentar),                          // u body-ju šaljemo novog zaposlenog (JSON.stringify() pretvara JavaScript objekat u JSON)
-            success: function (response) {                              // ova f-ja se izvršava posle uspešnog zahteva
-                console.log(response);                                  // ispisujemo u konzoli povratnu vrednost radi provere
+            type: "POST",
+            url: "http://localhost:8080/centri",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(newCentar),
+            success: function (response) {
+                console.log(response);
 
-                alert("Centar " + response.id + " je uspešno kreiran!");// prikazujemo poruku uspeha korisniku
-                window.location.href = "centri.html";                // redirektujemo ga na employees.html stranicu
+                alert("Centar " + response.id + " je uspešno kreiran!");
+                window.location.href = "centri.html";
             },
-            error: function () {                                        // ova f-ja se izvršava posle neuspešnog zahteva
+            error: function () {
                 alert("Greška!");
             }
         });

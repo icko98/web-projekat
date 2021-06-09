@@ -2,7 +2,6 @@ package web.WebProjekat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.WebProjekat.entity.FitnessCentar;
 import web.WebProjekat.entity.Korisnik;
 import web.WebProjekat.repository.KorisnikRepository;
 
@@ -25,6 +24,15 @@ public class KorisnikService {
         List<Korisnik> korisnici= this.korisnikRepository.findAll();
         return korisnici;
     }
+
+    public Korisnik findbypar(String email) throws Exception{
+
+        Korisnik k1 = this.korisnikRepository.findByEmail(email).get(0);
+        if(k1==null) {
+            throw new Exception("Korisnik ne postoji");
+        }
+        return k1;
+        }
     public Korisnik create(Korisnik korisnik) throws Exception {
         if (korisnik.getId() != null) {
             throw new Exception("ID must be null!");

@@ -1,7 +1,7 @@
-$(document).on("submit", "#addKorisnik", function (event) {     // kada je submit-ovana forma za kreiranje novog zaposlenog
-    event.preventDefault();                                         // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
+$(document).on("submit", "#addKorisnik", function (event) {
+    event.preventDefault();
 
-    // preuzimamo vrednosti unete u formi
+
     let ime = $("#ime").val();
     let prezime = $("#prezime").val();
     let korisnickoIme = $("#username").val();
@@ -13,8 +13,7 @@ $(document).on("submit", "#addKorisnik", function (event) {     // kada je submi
     let aktivan = true;
 
 
-    // kreiramo objekat zaposlenog
-    // nazivi svih atributa moraju se poklapati sa nazivima na backend-u
+
     let noviKorisnik = {
         email,
         uloga,

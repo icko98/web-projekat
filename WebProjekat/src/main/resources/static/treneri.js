@@ -1,15 +1,15 @@
-$(document).ready(function () {    // Čeka se trenutak kada je DOM(Document Object Model) učitan da bi JS mogao sa njim da manipuliše.
-    // ajax poziv za dobavljanje svih zaposlenih sa backend-a i prikaz u tabeli
-    $.ajax({
-        type: "GET",                                                // HTTP metoda
-        url: "http://localhost:8080/treneri",                 // URL koji se gađa
-        dataType: "json",                                           // tip povratne vrednosti
-        success: function (response) {                              // ova f-ja se izvršava posle uspešnog zahteva
-            console.log("SUCCESS:\n", response);                    // ispisujemo u konzoli povratnu vrednost radi provere
+$(document).ready(function () {
 
-            for (let Korisnik of response) {                        // prolazimo kroz listu svih zaposlenih
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/treneri",
+        dataType: "json",
+        success: function (response) {
+            console.log("SUCCESS:\n", response);
+
+            for (let Korisnik of response) {
                 if(Korisnik.aktivan==false){
-                let row = "<tr>";                                   // kreiramo red za tabelu
+                let row = "<tr>";
                 row += "<td>" + Korisnik.id + "</td>";
                 row += "<td>" + Korisnik.ime + "</td>";
                 row += "<td>" + Korisnik.prezime + "</td>";
@@ -35,7 +35,7 @@ $(document).ready(function () {    // Čeka se trenutak kada je DOM(Document Obj
 
 
 
-$(document).on('click', '.btnSeeMore', function () {            // kada je kliknut button čija je klasa class = btnSeeMore
+$(document).on('click', '.btnSeeMore', function () {
         let korid = this.dataset.id;
         function handle(data){
             data["aktivan"]=true;
@@ -45,8 +45,8 @@ $(document).on('click', '.btnSeeMore', function () {            // kada je klikn
                                 dataType: "json",
                                 contentType: "application/json",
                                 data: JSON.stringify(data),
-                                success: function (response) {                          // ova f-ja se izvršava posle uspešnog zahteva
-                                    console.log("SUCCESS:\n", response);                // ispisujemo u konzoli povratnu vrednost radi provere
+                                success: function (response) {
+                                    console.log("SUCCESS:\n", response);
                                     alert("prihvacen");
                                     location.reload();
                                 },
@@ -64,7 +64,7 @@ $(document).on('click', '.btnSeeMore', function () {            // kada je klikn
                         url: "http://localhost:8080/treneri/" + korid,
                         dataType: "json",
                         success: handle,
-                        error: function (response) {                            // ova f-ja se izvršava posle neuspešnog zahteva
+                        error: function (response) {
                             console.log("ERROR:\n", response);
                         }
                     });
@@ -77,11 +77,11 @@ $(document).on('click', '.btnSeeMore', function () {            // kada je klikn
 
  });
 
- $(document).on('click', '.btnSeeMore2', function () {   // Kada kliknemo decline
+ $(document).on('click', '.btnSeeMore2', function () {
         let korid = this.dataset.id;
         $.ajax({
-                type: "DELETE",                                                // HTTP metoda
-                url: "http://localhost:8080/treneri/" + korid,                 // URL koji se gađa
+                type: "DELETE",
+                url: "http://localhost:8080/treneri/" + korid,
                 success: function (response) {
                     alert("obrisan:\n");
                     location.reload();

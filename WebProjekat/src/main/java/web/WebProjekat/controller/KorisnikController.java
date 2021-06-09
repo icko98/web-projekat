@@ -48,7 +48,7 @@ public class KorisnikController {
     }
 
 
-    //Dodavanje novog korisnika valjda, nisam siguran
+    //Dodavanje novog korisnika
     @PostMapping(value="/profili",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) // OBRISO SAM HTML SA KRAJA MOZDA JE TO GRESKA
     public ResponseEntity<Korisnik> createKorisnik(@RequestBody Korisnik korisnik) throws Exception {
         Korisnik newKorisnik = new Korisnik(korisnik.getKorisnickoIme(),korisnik.getLozinka(),korisnik.getProsecnaOcena(),
@@ -57,6 +57,14 @@ public class KorisnikController {
         Korisnik noviKorisnik = korisnikService.create(korisnik);
         return new ResponseEntity<>(noviKorisnik, HttpStatus.CREATED);
     }
+    @PostMapping(value="/loogin",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Korisnik> login(@RequestBody String Email) throws Exception {
+
+        Korisnik kor1 =  korisnikService.findbypar(Email);
+        System.out.println(kor1.getEmail());
+        return new ResponseEntity<>(kor1, HttpStatus.OK);
+    }
+
 
     //Brisanje postojeceg korisnika
     @DeleteMapping(value="/profili/{id}")
