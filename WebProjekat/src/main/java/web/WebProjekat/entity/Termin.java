@@ -29,6 +29,7 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Trening trening;
 
+    //ovo ce morati da se menja
     @JsonIgnore
     @OneToMany(mappedBy = "termin", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ocena> ocene;
