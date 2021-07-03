@@ -3,7 +3,9 @@ package web.WebProjekat.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -22,6 +24,30 @@ public class Korisnik implements Serializable {
 
 	@Column
 	private String Lozinka;
+
+	public List<Termin> getListaOdradjenihTreninga() {
+		return listaOdradjenihTreninga;
+	}
+
+	public void setListaOdradjenihTreninga(List<Termin> listaOdradjenihTreninga) {
+		this.listaOdradjenihTreninga = listaOdradjenihTreninga;
+	}
+
+	public List<Termin> getListaPrijavljenihTreninga() {
+		return listaPrijavljenihTreninga;
+	}
+
+	public void setListaPrijavljenihTreninga(List<Termin> listaPrijavljenihTreninga) {
+		this.listaPrijavljenihTreninga = listaPrijavljenihTreninga;
+	}
+
+	public List<Ocena> getListaOcena() {
+		return listaOcena;
+	}
+
+	public void setListaOcena(List<Ocena> listaOcena) {
+		this.listaOcena = listaOcena;
+	}
 
 	@JsonIgnore
 	@Column
@@ -46,6 +72,18 @@ public class Korisnik implements Serializable {
 	@Column
 	@Enumerated
 	private Uloga Uloga;
+
+
+	@OneToMany(mappedBy = "trening", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Termin> listaOdradjenihTreninga;
+
+	@OneToMany(mappedBy = "trening", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Termin> listaPrijavljenihTreninga;
+
+	@OneToMany(mappedBy = "ocena", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Ocena> listaOcena;
+
+
 
 
 	@Column
@@ -156,6 +194,9 @@ public class Korisnik implements Serializable {
 		DatumRodjenja = datumRodjenja;
 		Uloga = uloga;
 		Aktivan = aktivan;
+		this.listaOcena = new ArrayList<>() ;
+		this.listaOdradjenihTreninga = new ArrayList<>();
+		this.listaPrijavljenihTreninga = new ArrayList<>();
 	}
 
 	public Korisnik(String korisnickoIme, String lozinka, int prosecnaOcena, String ime, String prezime, String telefon, String email, Date datumRodjenja, web.WebProjekat.entity.Uloga uloga, Boolean aktivan) {
@@ -168,6 +209,28 @@ public class Korisnik implements Serializable {
 		this.email = email;
 		DatumRodjenja = datumRodjenja;
 		Uloga = uloga;
+		Aktivan = aktivan;
+		this.listaOcena = new ArrayList<>() ;
+		this.listaOdradjenihTreninga = new ArrayList<>();
+		this.listaPrijavljenihTreninga = new ArrayList<>();
+	}
+
+	public Korisnik(Long id, String korisnickoIme, String lozinka, int prosecnaOcena, String ime, String prezime,
+					String telefon, String email, Date datumRodjenja, web.WebProjekat.entity.Uloga uloga,
+					List<Termin> listaOdradjenihTreninga, List<Termin> listaPrijavljenihTreninga, List<Ocena> listaOcena, Boolean aktivan) {
+		this.id = id;
+		KorisnickoIme = korisnickoIme;
+		Lozinka = lozinka;
+		ProsecnaOcena = prosecnaOcena;
+		Ime = ime;
+		Prezime = prezime;
+		Telefon = telefon;
+		this.email = email;
+		DatumRodjenja = datumRodjenja;
+		Uloga = uloga;
+		this.listaOdradjenihTreninga = listaOdradjenihTreninga;
+		this.listaPrijavljenihTreninga = listaPrijavljenihTreninga;
+		this.listaOcena = listaOcena;
 		Aktivan = aktivan;
 	}
 }
