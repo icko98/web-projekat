@@ -49,7 +49,7 @@ public class KorisnikController {
 
 
     //Dodavanje novog korisnika
-    @PostMapping(value="/profili",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) // OBRISO SAM HTML SA KRAJA MOZDA JE TO GRESKA
+    @PostMapping(value="/profili",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> createKorisnik(@RequestBody Korisnik korisnik) throws Exception {
         Korisnik newKorisnik = new Korisnik(korisnik.getKorisnickoIme(),korisnik.getLozinka(),korisnik.getProsecnaOcena(),
                 korisnik.getIme(),korisnik.getPrezime(),korisnik.getTelefon(),korisnik.getEmail(),
@@ -59,9 +59,9 @@ public class KorisnikController {
     }
     @PostMapping(value="/loogin",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> login(@RequestBody String Email) throws Exception {
-
+        System.out.println(Email);
         Korisnik kor1 =  korisnikService.findbypar(Email);
-        System.out.println(kor1.getEmail());
+        System.out.println(kor1.getLozinka());
         return new ResponseEntity<>(kor1, HttpStatus.OK);
     }
 

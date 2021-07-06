@@ -4,27 +4,31 @@ $(document).on("submit", "#login3", function (event) {
 
     let Lozinka = $("#inputPassword").val();
     let Email = $("#staticEmail").val();
-    console.log(Email);
 
 
-    let Koris = {
-    Lozinka,
-    Email,
-    }
+
+
     $.ajax({
             type: "POST",
             url: "http://localhost:8080/loogin",
             dataType: "json",
             contentType: "application/json",
-            data: JSON.stringify(Email),
+            data: Email,
             success: function (response) {
-                console.log(response);
+                
+                if(Lozinka==response.lozinka){
+                alert("Uspeh!");
+                localStorage.setItem('ime', response.ime);
+                localStorage.setItem('Uloga', response.uloga);
+                window.location.href = "treneri.html";}
+                else{alert("nemoze!");}
 
 
 
             },
-            error: function () {
-                alert("Greška!");
-            }
+              error: (error) => {
+                                 console.log(JSON.stringify(error));
+               }
+
         });
     });

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
     void deleteById(Long Id);
-    List<Korisnik> findByEmail(String email);
+
+    Korisnik findByEmail(String email);
     //TODO
 }

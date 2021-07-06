@@ -27,7 +27,7 @@ public class KorisnikService {
 
     public Korisnik findbypar(String email) throws Exception{
 
-        Korisnik k1 = this.korisnikRepository.findByEmail(email).get(0);
+        Korisnik k1 = this.korisnikRepository.findByEmail(email);
         if(k1==null) {
             throw new Exception("Korisnik ne postoji");
         }

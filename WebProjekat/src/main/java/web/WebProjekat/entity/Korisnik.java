@@ -105,7 +105,7 @@ public class Korisnik implements Serializable {
 		KorisnickoIme = korisnickoIme;
 	}
 
-	@JsonIgnore
+
 	public String getLozinka() {
 		return Lozinka;
 	}
