@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="jquery.min.js"></script>
-  <script src="jquery.validate.min.js"></script>
-  <script src="treneri.js"></script>
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="termini.js"></script>
+<title>dodaj</title>
+
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,40 +51,37 @@
   </div>
 </nav>
 
-<div id="korisnici222">
-<h1>Korisnici</h1>
-<br><br>
-<div class="container">
-  <table id="korisnici">
-    <tr>
-      <th>#</th>
-      <th>Ime</th>
-      <th>Prezime</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Broj telefona</th>
-      <th>Datum Rodjenja</th>
-      <th> aktivan </th>
-    </tr>
-  </table>
-</div>
-</div>
+<div style="position: absolute;
+    top: 35%;
+    left: 35%;
 
-<div id="oneKorisnik" hidden>
-  <h2 style="text-align:center">Employee Profile</h2>
-  <div class="card">
-    <h1 id="id"></h1>
-    <h1 id="ime"></h1>
-    <h1 id="prezime"></h1>
-    <p  id="korisnickoIme"></p>
-    <p id="email"></p>
-    <p id="telefon"></p>
-    <p id="datumRodjenja"></p>
-    <p id="aktivan"></p>
-    <br>
-  </div>
-</div>
+    width: 700px;
+    height: 100px;
 
+    font-size:22px;
+">
+  <h1 style="margin-left:135px">dodaj</h1>
+  <form id="addTerminForm" style="margin-top:30px;">
+    <div class="form-group">
+      <label for="pocetak" class="col-sm-2 col-form-label">naziv</label>
+      <input type="date"  id="pocetak" >
+    </div>
+    <div class="form-group">
+      <label for="cena" class="col-sm-2 col-form-label">adresa</label>
+      <input type="double" id="cena" >
+    </div>
+    <div class="form-group">
+      <label for="sala" class="col-sm-2 col-form-label">broj</label>
+      <input type="int"  id="sala" >
+    </div>
+    <div class="form-group">
+      <label for="trening" class="col-sm-2 col-form-label">email</label>
+      <input type="int" id="trening" >
+    </div>
+    <div class="form-group">
+      <input style="margin-left:140px; margin-top:30px; scale:200%" type="submit" value="Add">
+    </div>
+  </form>
+</div>
 </body>
 </html>
-

@@ -39,7 +39,7 @@ public class FitnessCentarController {
     @DeleteMapping(value = "/centri/{id}")
     public ResponseEntity<Void> deleteFC(@PathVariable Long id)
     {
-        this.fitnessCentarService.delete((id));
+        this.fitnessCentarService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

@@ -5,10 +5,8 @@ import org.hibernate.persister.walking.internal.FetchStrategyHelper;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 @Entity
 public class Termin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,6 @@ public class Termin implements Serializable {
 
     @Column
     private double cena;
-
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sala;
@@ -75,6 +72,21 @@ public class Termin implements Serializable {
         this.trening = trening;
         this.ocene = ocene;
     }
+
+    public Termin(Date pocetak, double cena, Sala sala, Trening trening) {
+        this.pocetak = pocetak;
+        this.cena = cena;
+        this.sala = sala;
+        this.trening = trening;
+        this.ocene = new ArrayList<>();
+    }
+
+    public Termin(Date pocetak, double cena, long sala, long trening) {
+        this.pocetak = pocetak;
+        this.cena = cena;
+
+    }
+
     public Termin(){}
 
     public List<Ocena> getOcene() {

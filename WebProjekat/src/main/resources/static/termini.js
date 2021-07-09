@@ -16,6 +16,14 @@ $(document).ready(function () {
                 row += "<td>" + termin.sala.oznaka + "</td>";
                 row += "<td>" + termin.trening.tip + "</td>";
                 $('#termini').append(row);}
+                console.log(window.localStorage.getItem('Uloga'));
+                if(window.localStorage.getItem('Uloga')=='Trener'){
+                let btn = document.createElement("button");
+                btn.innerHTML = "Click Me";
+                btn.onclick= function () {
+                               location.href="/newTermin.html";
+                             };
+                document.body.appendChild(btn);}
 
         },
         error: function (response) {
@@ -117,3 +125,36 @@ function nadji5(){
     }
     }
     }
+
+$(document).on("submit", "#addTerminForm", function (event) {
+    event.preventDefault();
+
+    // preuzimamo vrednosti unete u formi
+    let cena = $("#cena").val();
+    let pocetak = $("#pocetak").val();
+    let sala = $("#sala").val();
+    let trening = $("#adresacen").val();
+
+    let newTermin = {
+    cena,
+    pocetak,
+    sala,
+    trening,
+    }
+    $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/termini",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(newTermin),
+            success: function (response) {
+                console.log(response);
+
+                alert("Termin " + response.id + " je uspešno kreiran!");
+                window.location.href = "termini.html";
+            },
+            error: function () {
+                alert("Greška!");
+            }
+        });
+    });

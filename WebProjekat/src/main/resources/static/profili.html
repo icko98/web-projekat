@@ -2,9 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>profili</title>
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="profili.js"></script>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
-<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Fitness Centar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="loogin.html">Login </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reg2.html">Registracija za korisnike</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="regtrener.html">Registracija za trenere<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="profili.html">Profili</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="treneri.html">Odobravanje</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="centri.html">Fitness Centri</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="termini.html">Odabir Termina</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="treneri2.html">Pregled Trenera</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="korisnici222">
+    <h1>Korisnici</h1>
+    <br><br>
+    <div class="container">
+        <table id="korisnici">
+            <tr>
+
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Broj telefona</th>
+                <th>Datum Rodjenja</th>
+                <th>Aktivan </th>
+                <th>Uloga</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="oneKorisnik" hidden>
+    <h2 style="text-align:center">Employee Profile</h2>
+    <div class="card">
+        <h1 id="id"></h1>
+        <h1 id="ime"></h1>
+        <h1 id="prezime"></h1>
+        <p  id="korisnickoIme"></p>
+        <p id="email"></p>
+        <p id="telefon"></p>
+        <p id="datumRodjenja"></p>
+        <p id="aktivan"></p>
+        <p id="uloga"></p>
+        <br>
+    </div>
+</div>
 
 </body>
 </html>

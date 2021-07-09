@@ -15,6 +15,8 @@ $(document).ready(function () {
                 row += "<td>" + fc.adresa + "</td>";
                 row += "<td>" + fc.brojTelefona + "</td>";
                 row += "<td>" + fc.email + "</td>";
+                let btn = "<button class='btnSeeMore' data-id=" + fc.id + ">Obrisi</button>";
+                                row += "<td>" + btn + "</td>";
                 $('#centri').append(row);}
 
         },
@@ -55,3 +57,15 @@ $(document).on("submit", "#addCentarForm", function (event) {
             }
         });
     });
+
+$(document).on('click', '.btnSeeMore', function () {
+        let fcid = this.dataset.id;
+        $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/centri/" + fcid,
+                success: function (response) {
+                    alert("obrisan:\n");
+                    location.reload();
+                    }
+                });
+ });

@@ -9,6 +9,7 @@ $(document).ready(function () {
 
             for (let Korisnik of response) {
                 if(Korisnik.aktivan==false){
+                if(Korisnik.uloga=='Trener'){
                 let row = "<tr>";
                 row += "<td>" + Korisnik.id + "</td>";
                 row += "<td>" + Korisnik.ime + "</td>";
@@ -17,14 +18,14 @@ $(document).ready(function () {
                 row += "<td>" + Korisnik.email + "</td>";
                 row += "<td>" + Korisnik.telefon + "</td>";
                 row += "<td>" + Korisnik.datumRodjenja + "</td>";
-                row += "<td" + Korisnik.aktivan + "</td>";
+                row += "<td>" + Korisnik.aktivan + "</td>";
                 let btn = "<button class='btnSeeMore' data-id=" + Korisnik.id + ">Accept</button>";
                 row += "<td>" + btn + "</td>";
                 let btn2 = "<button class='btnSeeMore2' data-id=" + Korisnik.id + ">Decline</button>";
                                 row += "<td>" + btn2 + "</td>";
                 row += "</tr>";
 
-                $('#korisnici').append(row);}
+                $('#korisnici').append(row);}}
             }
         },
         error: function (response) {

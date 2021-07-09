@@ -16,18 +16,18 @@ $(document).on("submit", "#login3", function (event) {
             data: Email,
             success: function (response) {
                 
-                if(Lozinka==response.lozinka){
+                if(Lozinka==response.lozinka && response.aktivan==true){
                 alert("Uspeh!");
-                localStorage.setItem('ime', response.ime);
-                localStorage.setItem('Uloga', response.uloga);
+                window.localStorage.setItem('ime', response.ime);
+                window.localStorage.setItem('Uloga', response.uloga);
                 window.location.href = "treneri.html";}
-                else{alert("nemoze!");}
+                else{alert("ne moze!");}
 
 
 
             },
               error: (error) => {
-                                 console.log(JSON.stringify(error));
+                                 alert("Korisnik ne postoji");
                }
 
         });

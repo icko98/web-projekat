@@ -16,8 +16,7 @@ public class KorisnikController {
     @Autowired
     private KorisnikService korisnikService;
 
-    @GetMapping("/")
-    public String welcome() {return "treneri.html";}
+
 
     //Vraca jednog korisnika
 
@@ -102,5 +101,6 @@ public class KorisnikController {
 
 
 
-    //TODO
+    //TODO Uradi za trenera da se nesto vidi, uradi proveru ko je na sistemu sta moze da vidi, i da se vide treninzi
+
 }
