@@ -20,7 +20,7 @@ $(document).on("submit", "#login3", function (event) {
                 alert("Uspeh!");
                 window.localStorage.setItem('ime', response.ime);
                 window.localStorage.setItem('Uloga', response.uloga);
-                window.location.href = "treneri.html";}
+                window.location.href = "home.html";}
                 else{alert("ne moze!");}
 
 

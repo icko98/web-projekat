@@ -13,13 +13,16 @@ $(document).ready(function () {
                 row += "<td>" + termin.id + "</td>";
                 row += "<td>" + termin.cena + "</td>";
                 row += "<td>" + termin.pocetak + "</td>";
-                row += "<td>" + termin.sala.oznaka + "</td>";
                 row += "<td>" + termin.trening.tip + "</td>";
+                if(window.localStorage.getItem('Uloga')=='Administrator'){
+                                let btn2 = "<button class='btnSeeMore2' data-id=" + termin.id + ">Obrisi</button>";
+                                                row += "<td>" + btn2 + "</td>";}
+
                 $('#termini').append(row);}
-                console.log(window.localStorage.getItem('Uloga'));
+
                 if(window.localStorage.getItem('Uloga')=='Trener'){
                 let btn = document.createElement("button");
-                btn.innerHTML = "Click Me";
+                btn.innerHTML = "Napravi novi termin";
                 btn.onclick= function () {
                                location.href="/newTermin.html";
                              };
@@ -31,6 +34,18 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).on('click', '.btnSeeMore2', function () {
+        let korid = this.dataset.id;
+        $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/termini/" + korid,
+                success: function (response) {
+                    alert("obrisan:\n");
+                    location.reload();
+                    }
+                });
+ });
 
 function nadji(){
     var input, fil, tab, tr, td, i , txt;
@@ -89,24 +104,7 @@ function nadji3(){
     }
     }
 
-function nadji4(){
-    var input, fil, tab, tr, td, i , txt;
-    input = document.getElementById("input4");
-    fil = input.value.toUpperCase();
-    tab = document.getElementById("termini");
-    tr = tab.getElementsByTagName("tr");
 
-    for (i=0;i<tr.length;i++){
-    td=tr[i].getElementsByTagName("td")[3];
-    if(td){
-        txt=td.textContent ;
-        if(txt.toUpperCase().indexOf(fil) > -1){
-        tr[i].style.display = "";}
-        else{
-        tr[i].style.display = "none";}
-    }
-    }
-    }
 function nadji5(){
     var input, fil, tab, tr, td, i , txt;
     input = document.getElementById("input5");

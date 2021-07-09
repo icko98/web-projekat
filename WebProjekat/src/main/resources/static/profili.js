@@ -19,6 +19,8 @@ $(document).ready(function () {
                 row += "<td>" + Korisnik.datumRodjenja + "</td>";
                 row += "<td>" + Korisnik.aktivan + "</td>";
                 row += "<td>" + Korisnik.uloga + "</td>";
+                let btn = "<button class='btnSeeMore' data-id=" + Korisnik.id + ">Profil</button>";
+                                                row += "<td>" + btn + "</td>";
 
                 if(window.localStorage.getItem('Uloga')=='Administrator'){
                 let btn2 = "<button class='btnSeeMore2' data-id=" + Korisnik.id + ">Obrisi</button>";
@@ -45,3 +47,9 @@ $(document).on('click', '.btnSeeMore2', function () {
                     }
                 });
  });
+
+ $(document).on('click', '.btnSeeMore', function () {
+         let korid = this.dataset.id;
+         window.localStorage.setItem('id', korid);
+         window.location.href="profil.html";
+  });

@@ -1,5 +1,7 @@
 package web.WebProjekat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
@@ -11,9 +13,11 @@ public class Ocena implements Serializable {
     @Column
     private int ocena;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Termin termin;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Korisnik trener;
 

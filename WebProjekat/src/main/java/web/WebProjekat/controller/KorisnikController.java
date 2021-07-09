@@ -58,9 +58,9 @@ public class KorisnikController {
     }
     @PostMapping(value="/loogin",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> login(@RequestBody String Email) throws Exception {
-        System.out.println(Email);
+
         Korisnik kor1 =  korisnikService.findbypar(Email);
-        System.out.println(kor1.getLozinka());
+
         return new ResponseEntity<>(kor1, HttpStatus.OK);
     }
 

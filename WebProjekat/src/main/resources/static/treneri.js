@@ -19,10 +19,11 @@ $(document).ready(function () {
                 row += "<td>" + Korisnik.telefon + "</td>";
                 row += "<td>" + Korisnik.datumRodjenja + "</td>";
                 row += "<td>" + Korisnik.aktivan + "</td>";
+                if(window.localStorage.getItem('Uloga')=='Administrator'){
                 let btn = "<button class='btnSeeMore' data-id=" + Korisnik.id + ">Accept</button>";
                 row += "<td>" + btn + "</td>";
                 let btn2 = "<button class='btnSeeMore2' data-id=" + Korisnik.id + ">Decline</button>";
-                                row += "<td>" + btn2 + "</td>";
+                                row += "<td>" + btn2 + "</td>";}
                 row += "</tr>";
 
                 $('#korisnici').append(row);}}

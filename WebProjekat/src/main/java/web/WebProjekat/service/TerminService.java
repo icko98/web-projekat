@@ -24,5 +24,13 @@ public class TerminService {
         }
         return this.terminRepository.save(termin);
     }
+    public Termin findOne(Long id)
+    {
+        return this.terminRepository.findById(id).get();}
+
+    public void delete(Long id)
+    {
+        this.terminRepository.deleteById(id);
+    }
     //TODO
 }

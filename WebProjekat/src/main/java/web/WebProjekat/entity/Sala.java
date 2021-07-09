@@ -18,7 +18,7 @@ public class Sala implements Serializable {
 	@Column
 	private String oznaka;
 
-	@JsonIgnore
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	private FitnessCentar fitnessCentar;
 

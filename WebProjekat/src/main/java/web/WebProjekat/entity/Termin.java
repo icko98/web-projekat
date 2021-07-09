@@ -19,14 +19,20 @@ public class Termin implements Serializable {
     @Column
     private double cena;
 
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Sala sala;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
+    private FitnessCentar fitnessCentar;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "listaPrijavljenihTreninga")
+    private List<Korisnik> listaKorisnika;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     private Trening trening;
 
-    //ovo ce morati da se menja
     @JsonIgnore
     @OneToMany(mappedBy = "termin", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ocena> ocene;
@@ -81,10 +87,12 @@ public class Termin implements Serializable {
         this.ocene = new ArrayList<>();
     }
 
-    public Termin(Date pocetak, double cena, long sala, long trening) {
+    public Termin(Date pocetak, double cena, Sala sala, FitnessCentar fitnessCentar, Trening trening) {
         this.pocetak = pocetak;
         this.cena = cena;
-
+        this.sala = sala;
+        this.fitnessCentar = fitnessCentar;
+        this.trening = trening;
     }
 
     public Termin(){}
@@ -105,5 +113,29 @@ public class Termin implements Serializable {
         this.id = id;
     }
 
+    public Termin(Long id, Date pocetak, double cena, Sala sala, FitnessCentar fitnessCEntar, Trening trening, List<Ocena> ocene) {
+        this.id = id;
+        this.pocetak = pocetak;
+        this.cena = cena;
+        this.sala = sala;
+        this.fitnessCentar = fitnessCentar;
+        this.trening = trening;
+        this.ocene = ocene;
+    }
 
+    public List<Korisnik> getListaKorisnika() {
+        return listaKorisnika;
+    }
+
+    public void setListaKorisnika(List<Korisnik> listaKorisnika) {
+        this.listaKorisnika = listaKorisnika;
+    }
+
+    public FitnessCentar getFitnessCentar() {
+        return fitnessCentar;
+    }
+
+    public void setFitnessCentar(FitnessCentar fitnessCentar) {
+        this.fitnessCentar = fitnessCentar;
+    }
 }

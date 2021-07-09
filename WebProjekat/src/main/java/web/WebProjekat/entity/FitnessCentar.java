@@ -63,7 +63,7 @@ public class FitnessCentar implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	@JsonIgnore
 	public List<Korisnik> getListaTrenera() {
 		return listaTrenera;
 	}
@@ -71,7 +71,7 @@ public class FitnessCentar implements Serializable {
 	public void setListaTrenera(List<Korisnik> listaTrenera) {
 		this.listaTrenera = listaTrenera;
 	}
-
+	@JsonIgnore
 	public List<Sala> getListaSala() {
 		return listaSala;
 	}
@@ -79,26 +79,26 @@ public class FitnessCentar implements Serializable {
 	public void setListaSala(List<Sala> listaSala) {
 		this.listaSala = listaSala;
 	}
-
-	public List<Trening> getListaTreninga() {
-		return listaTreninga;
+	@JsonIgnore
+	public List<Termin> getListaTreninga() {
+		return listaTermina;
 	}
 
-	public void setListaTreninga(List<Trening> listaTreninga) {
-		this.listaTreninga = listaTreninga;
+	public void setListaTreninga(List<Termin> listaTreninga) {
+		this.listaTermina = listaTreninga;
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "fitnessCentar",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Korisnik> listaTrenera;
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "fitnessCentar",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Sala> listaSala;
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Trening> listaTreninga;
+	@OneToMany(mappedBy = "fitnessCentar",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Termin> listaTermina;
 
 	public FitnessCentar(){}
 
@@ -109,7 +109,7 @@ public class FitnessCentar implements Serializable {
 		this.email=email;
 	}
 
-	public FitnessCentar(Long id, String naziv, String adresa, String brojTelefona, String email, List<Korisnik> listaTrenera, List<Sala> listaSala, List<Trening> listaTreninga) {
+	public FitnessCentar(Long id, String naziv, String adresa, String brojTelefona, String email, List<Korisnik> listaTrenera, List<Sala> listaSala, List<Termin> listaTermina) {
 		this.id = id;
 		this.naziv = naziv;
 		this.adresa = adresa;
@@ -117,6 +117,6 @@ public class FitnessCentar implements Serializable {
 		this.email = email;
 		this.listaTrenera = listaTrenera;
 		this.listaSala = listaSala;
-		this.listaTreninga = listaTreninga;
+		this.listaTermina = listaTermina;
 	}
 }

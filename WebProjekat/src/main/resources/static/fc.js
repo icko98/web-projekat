@@ -15,8 +15,11 @@ $(document).ready(function () {
                 row += "<td>" + fc.adresa + "</td>";
                 row += "<td>" + fc.brojTelefona + "</td>";
                 row += "<td>" + fc.email + "</td>";
+                if(window.localStorage.getItem('Uloga')=='Administrator'){
                 let btn = "<button class='btnSeeMore' data-id=" + fc.id + ">Obrisi</button>";
-                                row += "<td>" + btn + "</td>";
+                                row += "<td>" + btn + "</td>";}
+                let btn2 = "<button class='btnSeeMore2' data-id=" + fc.id + ">Vidi sale</button>";
+                                                row += "<td>" + btn2 + "</td>";
                 $('#centri').append(row);}
 
         },
@@ -68,4 +71,9 @@ $(document).on('click', '.btnSeeMore', function () {
                     location.reload();
                     }
                 });
+ });
+$(document).on('click', '.btnSeeMore2', function () {
+        let fcid = this.dataset.id;
+        window.localStorage.setItem('id', fcid);
+        window.location.href = "Sale.html";
  });

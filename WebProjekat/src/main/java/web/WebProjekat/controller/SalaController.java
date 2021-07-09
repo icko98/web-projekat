@@ -17,34 +17,34 @@ public class SalaController {
 @Autowired
     private SalaService salaService;
 
-    @GetMapping(value="/Sale.html", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/Sale", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Sala>> getSale()
     {
         List<Sala> listaSala=this.salaService.findAll();
         return new ResponseEntity<>(listaSala, HttpStatus.OK);
     }
 
-    @GetMapping(value="/Sale.html/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/Sale/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Sala> getSala(@PathVariable("id") Long id)
     {
         Sala sala = this.salaService.findOne(id);
         return new ResponseEntity<>(sala, HttpStatus.OK);
     }
 
-    @PostMapping(value="/Sale.html", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/Sale/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Sala> createSala(@RequestBody Sala salas) throws Exception {
         Sala novaSala = salaService.create(salas);
         return new ResponseEntity<>(novaSala, HttpStatus.CREATED);
     }
 
-    @DeleteMapping(value = "/Sale.html/{id}")
+    @DeleteMapping(value = "/Sale/{id}")
     public ResponseEntity<Void> deleteSala(@PathVariable Long id)
     {
         this.salaService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping(value="/Sale.html/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value="/Sale/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Sala> updateSala(@PathVariable Long id, @RequestBody Sala sala) throws Exception {
         Sala novaSala = new Sala(sala.getKapacitet(), sala.getOznaka(), sala.getFitnessCentar(), sala.getTermini());
         novaSala.setId(id);

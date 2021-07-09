@@ -68,18 +68,27 @@ public class Korisnik implements Serializable {
 	@Column
 	private Date DatumRodjenja;
 
+	@ManyToOne(fetch=FetchType.EAGER)
+	private FitnessCentar fitnessCentar;
+
 
 	@Column
 	@Enumerated
 	private Uloga Uloga;
 
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "trening", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Termin> listaOdradjenihTreninga;
 
-	@OneToMany(mappedBy = "trening", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+
+	@ManyToMany
+	@JoinTable(
+			name="lista_termina",
+			joinColumns = @JoinColumn(name="korisnik_id"),
+			inverseJoinColumns = @JoinColumn(name="termin_id"))
 	private List<Termin> listaPrijavljenihTreninga;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "ocena", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Ocena> listaOcena;
 
@@ -171,6 +180,13 @@ public class Korisnik implements Serializable {
 		Uloga = uloga;
 	}
 
+	public FitnessCentar getFitnessCentar() {
+		return fitnessCentar;
+	}
+
+	public void setFitnessCentar(FitnessCentar fitnessCentar) {
+		this.fitnessCentar = fitnessCentar;
+	}
 
 	public Boolean getAktivan() {
 		return Aktivan;
@@ -227,6 +243,26 @@ public class Korisnik implements Serializable {
 		Telefon = telefon;
 		this.email = email;
 		DatumRodjenja = datumRodjenja;
+		Uloga = uloga;
+		this.listaOdradjenihTreninga = listaOdradjenihTreninga;
+		this.listaPrijavljenihTreninga = listaPrijavljenihTreninga;
+		this.listaOcena = listaOcena;
+		Aktivan = aktivan;
+	}
+
+	public Korisnik(Long id, String korisnickoIme, String lozinka, int prosecnaOcena, String ime, String prezime, String telefon, String email, Date datumRodjenja,
+					FitnessCentar fitnessCentar, web.WebProjekat.entity.Uloga uloga, List<Termin> listaOdradjenihTreninga, List<Termin> listaPrijavljenihTreninga,
+					List<Ocena> listaOcena, Boolean aktivan) {
+		this.id = id;
+		KorisnickoIme = korisnickoIme;
+		Lozinka = lozinka;
+		ProsecnaOcena = prosecnaOcena;
+		Ime = ime;
+		Prezime = prezime;
+		Telefon = telefon;
+		this.email = email;
+		DatumRodjenja = datumRodjenja;
+		this.fitnessCentar = fitnessCentar;
 		Uloga = uloga;
 		this.listaOdradjenihTreninga = listaOdradjenihTreninga;
 		this.listaPrijavljenihTreninga = listaPrijavljenihTreninga;
