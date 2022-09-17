@@ -1,2 +1,2 @@
 # web-projekat
-# java projekat za faks
+# java projekat za predmet web programiranje
